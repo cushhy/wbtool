@@ -41,8 +41,12 @@ $(document).ready(function () {
 
         $('.nav-list li').removeClass('active');
         $this.addClass('active');
-        $('.header__burger,.header__menu').toggleClass('active');
-        $('body').toggleClass('lock');
+
+        if ($('.header__burger,.header__menu').hasClass('active')) {
+            $('.header__burger,.header__menu').removeClass('active');
+        } if ($('body').hasClass('lock')) {
+            $('body').removeClass('lock')
+        }
 
         $('html, body').animate({
             scrollTop: blockOffset
